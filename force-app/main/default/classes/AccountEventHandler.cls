@@ -1,10 +1,11 @@
 public with sharing class AccountEventHandler {
     
-    public static Account_Change__e createEvent(List<ChangedAccountInfo> changedFields){
+    public static Account_Change__e createEvent(Id accountId, List<ChangedAccountInfo> changedFields){
         List<Account_Change__e> accountEvents = new List<Account_Change__e>();
         String message = createMessage(changedFields);
         Account_Change__e accountEvent = new Account_Change__e(
-            Message__c = message
+            Message__c = message,
+            Record_Id__c = accountId
         );
         accountEvents.add(accountEvent);
         return accountEvent;

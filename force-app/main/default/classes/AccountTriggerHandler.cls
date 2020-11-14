@@ -16,7 +16,7 @@ public with sharing class AccountTriggerHandler {
                 }
             } 
 
-            Account_Change__e accountEvent = AccountEventHandler.createEvent(changedFields);
+            Account_Change__e accountEvent = AccountEventHandler.createEvent(newAccount.Id, changedFields);
             accountEvents.add(accountEvent);
         }
         
