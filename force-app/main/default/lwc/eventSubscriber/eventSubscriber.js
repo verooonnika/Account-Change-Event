@@ -10,8 +10,8 @@ export default class eventSubscriber extends LightningElement {
     connectedCallback() {    
        
         const messageCallback = (response) => {
-            var message = response['data']['payload']['Message__c'];
-            var eventRecordId = response['data']['payload']['Record_Id__c'];
+            var message = response.data.payload.Message__c;
+            var eventRecordId = response.data.payload.Record_Id__c;
 
             if(eventRecordId == this.recordId){
                 this.showToast(message);
